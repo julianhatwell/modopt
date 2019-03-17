@@ -1,4 +1,3 @@
-
 # define the objective function 
 objFun = function(x){
   return(1.2 * (x-2)^2 + 3.2) 
@@ -30,14 +29,16 @@ plot_iterations <- function(x){
 
 #How to run this script. 
 
-#source("simple-function.R")
-#source("grad-descent.R")
+#source("simplefunc.R")
+#source("graddesc.R")
 
 #Below are sample runs of this script
 
 #Use Default parameters for the best performance. 
-#gd_plot(expression(Default~alpha))
+gd_plot(expression(Default~alpha))
 #Alpha too low; slow convergence
-#gd_plot(expression(Low~alpha), alpha=0.1)
+gd_plot(expression(Low~alpha), alpha=0.1)
 #Alpha high; convergence even slower
-#gd_plot(expression(High~alpha), alpha=0.8)
+gd_plot(expression(High~alpha), alpha=0.8)
+#Alpha just right?
+gd_plot(expression(Good~alpha), alpha=0.3)
