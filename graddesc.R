@@ -38,8 +38,8 @@ gdescent<- function(x, alpha, epsilon, iter){
 
 
 #Plot the objective function; conduct gradient descent; and plot the points visited during the gradient descent. 
-gd_plot <- function(title, x=getParams()["x"], alpha=getParams()["alpha"], epsilon=getParams()["epsilon"], 
-                    iter=getParams()["iter"], from=getParams()["from"], to=getParams()["to"]){
+gd_plot <- function(title, x=gd_params["x"], alpha=gd_params["alpha"], epsilon=gd_params["epsilon"], 
+                    iter=gd_params["iter"], from=gd_params["from"], to=gd_params["to"]){
   plot_obj(title, from, to)
   x.All <-gdescent(x,alpha,epsilon,iter)
   plot_iterations(x.All)
