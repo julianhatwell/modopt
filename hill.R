@@ -14,6 +14,8 @@
 hclimbing=function(par,fn,change,lower,upper,control,
                    type="min",...)
 { fpar=fn(par,...)
+positions <- matrix(NA, ncol = length(par)
+                    , nrow = control$maxit)
 for(i in 1:control$maxit) 
 { 
   par1=change(par,lower,upper) 
@@ -22,9 +24,10 @@ for(i in 1:control$maxit)
     cat("i:",i,"s:",par,"f:",fpar,"s'",par1,"f:",fpar1,"\n")
   if(   (type=="min" && fpar1<fpar) 
         || (type=="max" && fpar1>fpar)) { par=par1;fpar=fpar1 }
+  positions[i, ] <- par
 }
 if(control$REPORT>=1) cat("best:",par,"f:",fpar,"\n")
-return(list(sol=par,eval=fpar))
+return(list(sol=par,eval=fpar, positions=positions))
 }
 
 # slight random change of vector par:

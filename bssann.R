@@ -22,3 +22,4 @@ s=runif(D,-5.2,5.2) # initial search
 # SANN with default change (gr) function:
 s=optim(s,sphere,method="SANN",control=C)
 cat("best:",s$par,"f:",s$value,"\n")
+
