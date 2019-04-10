@@ -1,5 +1,6 @@
 ### bs-hill.R file ###
-
+library(lattice)
+library(latticeExtra)
 source("hill.R") # load the hill climbing methods
 source("functions.R") # load the profit function
 
@@ -18,5 +19,16 @@ rchange=function(par,lower,upper) # real value change
 { hchange(par,lower,upper,rnorm,mean=0,sd=0.5,round=FALSE) }
 
 s=runif(D,-5.2,5.2) # initial search
-hclimbing(s,sphere,change=rchange,lower=rep(-5.2,D),
+sphere_here <- hclimbing(s,sphere,change=rchange,lower=rep(-5.2,D),
           upper=rep(5.2,D),control=C,type="min")
+
+search_domain <- seq(-5.12, 5.12, length.out = 100)
+grd <- expand.grid(x1 = search_domain
+                   , x2 = search_domain)
+y <- apply(grd, 1, sphere)
+x2 <- sphere_here$positions[,2]
+x1 <- sphere_here$positions[,1]
+levelplot(y~x1*x2, data=grd) +
+  as.layer(xyplot(x2~x1
+                  , type="b"))
+

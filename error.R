@@ -1,4 +1,3 @@
-
 getX = function(){
   #data set: sample input values for 'x'
   x <- seq(0.4,2.6, by=0.2)
@@ -65,22 +64,22 @@ plot_iterations <- function(b){
 
 #How to run this script. 
 
-#source("error_function.R")
-#source("grad-descent.R")
+# source("error.R")
+source("graddesc.R")
 
 #Below are sample runs of this script
 
-#gd_plot(expression(Default~alpha),x=1.6)
-#gd_plot(expression(Default~alpha),x=1.5)
-#gd_plot(expression(Default~alpha),x=1.0)
-#gd_plot(expression(Default~alpha),x=0.3)
-#gd_plot(expression(Default~alpha),x=3)
+gd_plot(expression(Default~alpha),x=1.6)
+gd_plot(expression(Default~alpha),x=1.5)
+gd_plot(expression(Default~alpha),x=1.0)
+gd_plot(expression(Default~alpha),x=0.3)
+gd_plot(expression(Default~alpha),x=3)
 
 #The above commands all run ok. Now try this below: 
 
-#gd_plot(expression(Default~alpha),x=4)
+gd_plot(expression(Default~alpha),x=4)
 #Errors arise; Why? Big jumps around?
 #How can you make them smaller?
-#gd_plot(expression(Default~alpha),x=4, alpha=0.01)
+gd_plot(expression(Default~alpha),x=4, alpha=0.01)
 #Runs ok?
 
